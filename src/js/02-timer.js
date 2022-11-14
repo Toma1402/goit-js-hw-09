@@ -28,10 +28,15 @@ const options = {
 
       timerId = setInterval(() => {
         let timeValue = convertMs(chosenDate - Date.parse(new Date()));
+
         secondsRef.textContent = addLeadingZero(timeValue.seconds);
-        /*minutesRef.textContent = addLeadingZero(timeValue.minutes);
+        minutesRef.textContent = addLeadingZero(timeValue.minutes);
         hoursRef.textContent = addLeadingZero(timeValue.hours);
-        daysRef.textContent = addLeadingZero(timeValue.days); */
+        daysRef.textContent = addLeadingZero(timeValue.days);
+        console.log(chosenDate - Date.parse(new Date()));
+        if (chosenDate - Date.parse(new Date()) === 0) {
+          clearInterval(timerId);
+        }
       }, 1000);
     });
   },
@@ -39,8 +44,8 @@ const options = {
 
 const flatpickrRef = flatpickr(datePickerRef, options);
 
-function addLeadingZero(arg) {
-  arg.toString().padStart(2, '0');
+function addLeadingZero(value) {
+  return value.toString().padStart(2, '0');
 }
 
 function convertMs(ms) {

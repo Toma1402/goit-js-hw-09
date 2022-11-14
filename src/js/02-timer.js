@@ -35,7 +35,7 @@ const options = {
         minutesRef.textContent = addLeadingZero(timeValue.minutes);
         hoursRef.textContent = addLeadingZero(timeValue.hours);
         daysRef.textContent = addLeadingZero(timeValue.days);
-        console.log(chosenDate - Date.parse(new Date()));
+        //console.log(chosenDate - Date.parse(new Date()));
         if (chosenDate - Date.parse(new Date()) === 0) {
           clearInterval(timerId);
         }

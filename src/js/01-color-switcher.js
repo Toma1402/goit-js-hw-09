@@ -11,10 +11,12 @@ stopBtnRef.disabled = true;
 startBtnRef.addEventListener('click', onStartClick);
 stopBtnRef.addEventListener('click', onStopClick);
 function onStartClick() {
+  bodyRef.style.backgroundColor = getRandomHexColor(); //immediately starting changing color
   startBtnRef.disabled = true;
   stopBtnRef.disabled = false;
   timerId = setInterval(() => {
     bodyRef.style.backgroundColor = getRandomHexColor();
+    console.log(1);
   }, 1000);
 }
 console.dir(startBtnRef);
